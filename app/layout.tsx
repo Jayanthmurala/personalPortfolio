@@ -6,7 +6,10 @@ const sora = Sora({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Jayanth Murala - Full Stack Developer',
-  description: 'Portfolio website of Jayanth Murala',
+  description: 'Full Stack Developer Portfolio',
+    icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
