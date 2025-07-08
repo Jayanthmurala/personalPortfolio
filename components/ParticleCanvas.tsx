@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 export function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<any[]>([]);
+  const animationRef = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,8 +34,11 @@ export function ParticleCanvas() {
       color: string;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        const cw = canvas!.width;
+        const ch = canvas!.height;
+
+        this.x = Math.random() * cw;
+        this.y = Math.random() * ch;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.size = Math.random() * 3 + 1;
@@ -47,26 +51,27 @@ export function ParticleCanvas() {
         this.y += this.vy;
 
         // Wrap around edges
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+        if (this.x < 0) this.x = canvas!.width;
+        if (this.x > canvas!.width) this.x = 0;
+        if (this.y < 0) this.y = canvas!.height;
+        if (this.y > canvas!.height) this.y = 0;
       }
 
       draw() {
-        ctx.save();
-        ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 20;
-        ctx.shadowColor = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        ctx!.save();
+        ctx!.globalAlpha = this.opacity;
+        ctx!.fillStyle = this.color;
+        ctx!.shadowBlur = 20;
+        ctx!.shadowColor = this.color;
+        ctx!.beginPath();
+        ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx!.fill();
+        ctx!.restore();
       }
     }
 
-    // Create particles
+    // Clear and create particles
+    particlesRef.current = [];
     const particleCount = 100;
     for (let i = 0; i < particleCount; i++) {
       particlesRef.current.push(new Particle());
@@ -103,7 +108,7 @@ export function ParticleCanvas() {
         particle.draw();
       });
 
-      requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     };
 
     animate();
@@ -134,6 +139,8 @@ export function ParticleCanvas() {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      particlesRef.current = [];
     };
   }, []);
 
@@ -141,7 +148,9 @@ export function ParticleCanvas() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ background: 'radial-gradient(circle at 50% 50%, rgba(0, 245, 196, 0.05) 0%, rgba(10, 13, 20, 1) 100%)' }}
+      style={{
+        background: 'radial-gradient(circle at 50% 50%, rgba(0, 245, 196, 0.05) 0%, rgba(10, 13, 20, 1) 100%)',
+      }}
     />
   );
 }
