@@ -71,8 +71,8 @@
     description: "Full-stack e-commerce platform with real-time analytics, and user-friendly interface",
     tech: ["React", "Node.js", "MongoDB", "Tailwind", "Cloudinary", "Stripe"],
     image: "https://ik.imagekit.io/jayanthmurala05/Screenshot%202025-07-10%20221654.png?updatedAt=1752166191077",
-    link: "https://your-portfolio-link.vercel.app/",
-    github: "https://github.com/Jayanthmurala"
+    link: "https://outnow.onrender.com/",
+    github: "https://github.com/Jayanthmurala/E_commerce_project_1--Frontend--"
   }
 ];
 
