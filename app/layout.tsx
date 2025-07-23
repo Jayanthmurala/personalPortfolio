@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Sora } from 'next/font/google';
+import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 
 const sora = Sora({ subsets: ['latin'] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={sora.className}>{children}</body>
+      <body className={sora.className}>
+        {children}
+        <SonnerToaster />
+      </body>
     </html>
   );
 }

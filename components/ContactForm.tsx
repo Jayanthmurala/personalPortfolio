@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Send, Sparkles } from 'lucide-react';
 import { gsap } from 'gsap';
+import { toast } from 'sonner';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,10 +14,12 @@ export function ContactForm() {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+    setIsSubmitting(true);
+
     // Create particle burst effect
     const button = e.currentTarget.querySelector('.submit-btn');
     if (button) {
@@ -39,8 +42,27 @@ export function ContactForm() {
       }
     }
 
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast.error('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -92,7 +114,8 @@ export function ContactForm() {
 
           <Button
             type="submit"
-            className="submit-btn relative w-full bg-gradient-to-r from-[#00f5c4] to-[#a259ff] text-black font-semibold text-lg py-4 rounded-xl hover:scale-105 transition-all duration-300 overflow-hidden"
+            disabled={isSubmitting}
+            className="submit-btn relative w-full bg-gradient-to-r from-[#00f5c4] to-[#a259ff] text-black font-semibold text-lg py-4 rounded-xl hover:scale-105 transition-all duration-300 overflow-hidden disabled:opacity-50"
           >
             <span className="flex items-center justify-center gap-2">
               <Send className="w-5 h-5" />
