@@ -11,7 +11,7 @@ interface Project {
   description: string;
   tech: string[];
   image: string;
-  link: string;
+  link?: string;
   github?: string;
 }
 
@@ -110,10 +110,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
                       asChild
                       className="bg-gradient-to-r from-[#00f5c4] to-[#a259ff] text-black hover:opacity-90"
                     >
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </a>
+                      { 
+                        project.link && (
+                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </a>
+                        )
+
+                      }
+                  
                     </Button>
                     {project.github && (
                       <Button
