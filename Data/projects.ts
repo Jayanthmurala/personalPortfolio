@@ -73,6 +73,14 @@
     image: "https://ik.imagekit.io/jayanthmurala05/Screenshot%202025-07-10%20221654.png?updatedAt=1752166191077",
     link: "https://outnow.onrender.com/",
     github: "https://github.com/Jayanthmurala/E_commerce_project_1--Frontend--"
+  },
+  {
+    title: "Chess Game",
+    description: "A fully-featured, web-based chess game with a unique futuristic aesthetic, sound effects, and an AI-powered \"Strategic Advisor\" to help you analyze the board.",
+    tech: ["Html", "Css", "Javascript"],
+    image: "https://ik.imagekit.io/jayanthmurala05/Screenshot%202025-07-25%20113923.png?updatedAt=1753424024110",
+    // link: "https://outnow.onrender.com/",
+    github: "https://github.com/Jayanthmurala/Chess_Game/tree/main"
   }
 ];
 
