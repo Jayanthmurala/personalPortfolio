@@ -6,9 +6,9 @@ import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 const sora = Sora({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Jayanth Murala - Full Stack Developer',
+  title: 'Jayanth Murala | Full Stack Developer',
   description: 'Full Stack Developer Portfolio',
-    icons: {
+  icons: {
     icon: '/favicon.png',
   },
 };
