@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { Github, Linkedin, Mail, Heart, ArrowUp, Code, Coffee, Zap } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp, Code, Coffee, Zap, Instagram, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
@@ -65,6 +65,8 @@ export function Footer() {
   const socialLinks = [
     { icon: Github, href: "https://github.com/Jayanthmurala", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/jayanth-murala-0045b2281", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/jayanthmurala_/", label: "Instagram" },
+    { icon: MessageCircle, href: "https://wa.me/919392971945", label: "WhatsApp" },
     { icon: Mail, href: "mailto:jayanthmurala1@gmail.com", label: "Email" }
   ];
 
@@ -85,7 +87,7 @@ export function Footer() {
     <footer ref={footerRef} className="relative bg-gradient-to-t from-[#0a0d14] to-transparent border-t border-gray-800/50 overflow-hidden">
       {/* Animated stars background */}
       <div ref={starsRef} className="absolute inset-0 pointer-events-none" />
-      
+
       {/* Aurora effect */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00f5c4] rounded-full filter blur-3xl animate-pulse" />
@@ -99,10 +101,10 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="aurora-text text-3xl font-bold mb-4">Jayanth Murala</div>
             <p className="text-gray-400 text-lg leading-relaxed mb-6">
-              Crafting digital experiences that push the boundaries of what&#39;s possible. 
+              Crafting digital experiences that push the boundaries of what&#39;s possible.
               Let&#39;s build something extraordinary together.
             </p>
-            
+
             {/* Fun stats */}
             <div className="grid grid-cols-3 gap-4">
               {stats.map((stat, index) => (
@@ -121,7 +123,7 @@ export function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-gray-400 hover:text-[#00f5c4] transition-colors duration-300 flex items-center group"
                   >
@@ -173,15 +175,9 @@ export function Footer() {
               <span>and lots of</span>
               <Coffee className="w-4 h-4 text-[#00f5c4]" />
             </div>
-            
-            <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Jayanth Murala. All rights reserved.
-            </div>
-            
+
             <div className="flex items-center space-x-4 text-xs text-gray-500">
-              <span>Built with Next.js & GSAP</span>
-              <span>•</span>
-              <span>Deployed on Vercel</span>
+              <span>Built with Next.js & GSAP • Deployed on Vercel</span>
             </div>
           </div>
         </div>

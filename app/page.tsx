@@ -16,7 +16,7 @@ import { FloatingElements } from "@/components/FloatingElements";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { Footer } from "@/components/Footer";
 
-import { ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Mail, Download, Instagram, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
 import projects from "@/Data/projects";
@@ -47,8 +47,7 @@ export default function Home() {
           .split("")
           .map(
             (char) =>
-              `<span class="inline-block opacity-0 transform translate-y-10">${
-                char === " " ? "&nbsp;" : char
+              `<span class="inline-block opacity-0 transform translate-y-10">${char === " " ? "&nbsp;" : char
               }</span>`
           )
           .join("");
@@ -57,8 +56,7 @@ export default function Home() {
           .split("")
           .map(
             (char) =>
-              `<span class="inline-block opacity-0 transform translate-y-10">${
-                char === " " ? "&nbsp;" : char
+              `<span class="inline-block opacity-0 transform translate-y-10">${char === " " ? "&nbsp;" : char
               }</span>`
           )
           .join("");
@@ -226,23 +224,23 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-           <a 
-  href="/Jayanth_Murala_Resume.pdf" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="px-8 py-4 bg-gradient-to-r from-[#00f5c4] to-[#a259ff] text-black font-semibold rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
->
-  <Download className="w-5 h-5" />
-  View Resume
-</a>
-                <button
+              <a
+                href="/Jayanth_Murala_SDE_I.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-gradient-to-r from-[#00f5c4] to-[#a259ff] text-black font-semibold rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <Download className="w-5 h-5" />
+                View Resume
+              </a>
+              <button
                 className="px-8 py-4 glass-effect border border-[#00f5c4] text-[#00f5c4] font-semibold rounded-full hover:bg-[#00f5c4] hover:text-black transition-all duration-300"
                 onClick={() => {
                   projectsRef.current?.scrollIntoView({ behavior: "smooth" });
                 }}
-                >
+              >
                 View My Work
-                </button>
+              </button>
             </div>
 
             <div className="flex gap-6 justify-center">
@@ -257,6 +255,22 @@ export default function Home() {
                 className="p-4 rounded-full glass-effect hover:bg-[#00f5c4] hover:bg-opacity-20 transition-all duration-300 group"
               >
                 <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://www.instagram.com/jayanthmurala_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-full glass-effect hover:bg-[#00f5c4] hover:bg-opacity-20 transition-all duration-300 group"
+              >
+                <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://wa.me/919392971945"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-full glass-effect hover:bg-[#00f5c4] hover:bg-opacity-20 transition-all duration-300 group"
+              >
+                <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="mailto:jayanthmurala1@gmail.com"

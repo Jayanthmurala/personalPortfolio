@@ -64,12 +64,7 @@ export function LoadingScreen() {
           ref={subtitleRef}
           className="text-md md:text-lg text-gray-400 tracking-wide"
         >
-          <p
-            ref={subtitleRef}
-            className="text-md md:text-lg text-gray-400 tracking-wide"
-          >
-            🛸 Preparing full-stack awesomeness...
-          </p>
+          🛸 Preparing full-stack awesomeness...
         </p>
 
         <div className="w-64 h-2 bg-white/10 rounded-full overflow-hidden mx-auto">
