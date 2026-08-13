@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 550" width="880" height="550">
+  <rect width="880" height="550" fill="#111214"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.05">
+    <path d="M0 48h880M0 96h880M0 144h880M0 192h880M0 240h880M0 288h880M0 336h880M0 384h880M0 432h880M0 480h880M0 528h880"/>
+    <path d="M48 0v550M96 0v550M144 0v550M192 0v550M240 0v550M288 0v550M336 0v550M384 0v550M432 0v550M480 0v550M528 0v550M576 0v550M624 0v550M672 0v550M720 0v550M768 0v550M816 0v550M864 0v550"/>
+  </g>
+  <g transform="translate(440 250)">
+    <rect x="-26" y="-16" width="52" height="42" rx="6" fill="none" stroke="#6b7280" stroke-width="3"/>
+    <path d="M-14 -16v-12a14 14 0 0 1 28 0v12" fill="none" stroke="#6b7280" stroke-width="3"/>
+    <circle cx="0" cy="6" r="4" fill="#6b7280"/>
+  </g>
+  <text x="440" y="330" text-anchor="middle" fill="#6b7280"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace"
+        font-size="15" letter-spacing="5">UNDER NDA</text>
+</svg>
